@@ -264,3 +264,54 @@ lines(t,y_3,col="blue")
 legend((0.75*max(t)),(0.75*max(y_1)), legend=c("y_1 for a = -1", "y_2 for a = 2", "y_3 for a = 3"),col=c("red", "blue", "green"), lty=1:3, cex=0.8,  title="Line types", text.font=2, bg='lightgreen')
 
 ```
+![grafik](https://user-images.githubusercontent.com/61450446/130713549-0a8d88d5-a4a4-4f34-816f-d55cfea06557.png)
+
+## Simulate COVID-19 from fake data
+
+```r
+
+corona = function(beta, alpha, N){
+  new_n = (beta-alpha)*N
+  return(new_n)
+}
+
+alpha = 0.07
+beta = c(0.03, alpha, 0.17)
+N = 10
+t = 200
+d_t = 1
+x = seq(1,t,d_t)
+
+data = matrix(nrow=t, ncol=3)
+
+k = 1
+for (b in beta){
+  
+  for (i in x){
+    N_t = corona(b, alpha, N)
+    N  = N*d_t+N_t
+    data[i,k] = N
+  }
+  N = 10
+  k = k+1
+}
+data
+plot(x, data[,1], 
+     ylab="Infeceted persons [n]",
+     xlab = "time [day]",
+     col = "green",
+     lwd = 2,
+     main = "Projected Covid-19 Infections",
+     type='l',
+     ylim = c(1,83000000),
+     log='y' )
+lines(x, data[,2], col="orange")
+lines(x, data[,3], col="red")
+lines(c(0,t), c(82000000, 82000000), col='grey')
+
+legend(x = "topleft",
+       legend = c("transmission rate", "b = 0.03", "b = 0.07" ,"b = 0.17"),
+       col = c("white", "green", "orange", "red"),
+       lwd = 2)
+```
+![grafik](https://user-images.githubusercontent.com/61450446/130713683-1c56ea6d-dd83-4ecb-a345-08992b80b37f.png)
