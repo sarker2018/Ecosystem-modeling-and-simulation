@@ -235,7 +235,7 @@ for( i in 1:length(a)){
 
 ```
 
-## Iterate a specific parameter different values
+## Iterate a specific parameter for different values
 ```r
 #  exponential y(t) = y0 · e(?? t)
 
