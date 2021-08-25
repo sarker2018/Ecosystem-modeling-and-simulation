@@ -234,3 +234,33 @@ for( i in 1:length(a)){
 }
 
 ```
+
+## Iterate a specific parameter different values
+```r
+#  exponential y(t) = y0 · e(?? t)
+
+t = seq(-1,1,0.05)
+a = c(-1, 1, 3)
+y_0 = 1
+expo <- function(y_0, a, t){
+  return(y_0*(2.71828)^(a*t))
+}
+y_1 = vector()
+y_2 = vector()
+y_3 = vector()
+
+for(i in a){
+  y_1 <- (expo(y_0,a[1],t))
+  y_2 <- (expo(y_0,a[2],t))
+  y_3 <- (expo(y_0,a[3],t))
+}
+
+# everything by loop
+
+
+plot(t,y_1, pch=19, ylim=c(0,max(y_1)*1.2),xlim=c(0,max(t)*1.2), type="b",col="red", xlab="Time(day)", ylab="number of birds")
+lines(t,y_2,col="green")
+lines(t,y_3,col="blue")
+legend((0.75*max(t)),(0.75*max(y_1)), legend=c("y_1 for a = -1", "y_2 for a = 2", "y_3 for a = 3"),col=c("red", "blue", "green"), lty=1:3, cex=0.8,  title="Line types", text.font=2, bg='lightgreen')
+
+```
