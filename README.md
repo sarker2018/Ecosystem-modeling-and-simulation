@@ -190,9 +190,9 @@ xyplot(y1 + y2 ~ x, ylab = "y1 and y2", type = "l", auto.key = list(points = F,l
 ![grafik](https://user-images.githubusercontent.com/61450446/130712464-c4797343-10c7-430f-a4ff-3a51c96162ad.png)
 
 
-## Simple Example of xponential Function
+## Example of xponential Function
 
-```
+```R
 
 
 t = seq(-5,4.95,0.05)
