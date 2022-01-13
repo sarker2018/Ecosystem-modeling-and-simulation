@@ -1,4 +1,4 @@
-# Ecosystem-modeling-and-simulation
+# Environment-modeling-and-simulation
 
 * All the task descriptions can be found in the task.pdf file
 * Scripts are uploaded in the scripts folder. Scripts are separated for each task specified in the task.pdf (planning to combine them in a single Rmarkdown file soon)
